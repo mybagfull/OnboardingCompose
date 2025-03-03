@@ -27,17 +27,15 @@ fun IndicatorUI(
 ) {
         Row(horizontalArrangement = Arrangement.SpaceBetween) {
             repeat(pageSize) {
-                Spacer(modifier = Modifier.size(2.5.dp))
-
                 Box(
                     modifier = Modifier
                         .height(8.dp)
                         .width(width = if (it == currentPage) 24.dp else 8.dp)
-                        .clip(RoundedCornerShape(10.dp))
+                        .clip(RoundedCornerShape(20.dp))
                         .background(color = if (it == currentPage) selectedColor else unselectedColor)
 
                 )
-                Spacer(modifier = Modifier.size(2.5.dp))
+                Spacer(modifier = Modifier.size(8.dp))
 
             }
 
