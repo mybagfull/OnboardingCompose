@@ -22,11 +22,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.denishrynkevich.onboardingcompose.R
 
 @Composable
 fun OnboardingGraphUI(onboardingModel: OnboardingModel) {
-    val myBackgroundColor = colorResource(id = R.color.yellow)
+    val myBackgroundColor = colorResource(id = onboardingModel.color)
     val descriptionColor = Color.White.copy(alpha = 0.9f)
     Surface(
         color = myBackgroundColor, // Устанавливаем желтый фон
