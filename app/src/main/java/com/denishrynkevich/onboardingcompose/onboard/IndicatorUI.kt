@@ -50,7 +50,7 @@ fun IndicatorUIPreview1() {
 
     val myBackgroundColor = colorResource(id = R.color.yellow)
     Box(
-        Modifier.background(myBackgroundColor) // Устанавливаем желтый фон
+        Modifier.background(myBackgroundColor)
     ) {
         IndicatorUI(pageSize = 4, currentPage = 0)
     }
@@ -63,7 +63,7 @@ fun IndicatorUIPreview2() {
 
     val myBackgroundColor = colorResource(id = R.color.yellow)
     Box(
-        Modifier.background(myBackgroundColor) // Устанавливаем желтый фон
+        Modifier.background(myBackgroundColor)
     ) {
         IndicatorUI(pageSize = 4, currentPage = 1)
     }
@@ -76,7 +76,7 @@ fun IndicatorUIPreview3() {
 
     val myBackgroundColor = colorResource(id = R.color.yellow)
     Box(
-        Modifier.background(myBackgroundColor) // Устанавливаем желтый фон
+        Modifier.background(myBackgroundColor)
     ) {
         IndicatorUI(pageSize = 4, currentPage = 2)
     }
@@ -89,7 +89,7 @@ fun IndicatorUIPreview4() {
 
     val myBackgroundColor = colorResource(id = R.color.yellow)
     Box(
-        Modifier.background(myBackgroundColor) // Устанавливаем желтый фон
+        Modifier.background(myBackgroundColor)
     ) {
         IndicatorUI(pageSize = 4, currentPage = 3)
     }
