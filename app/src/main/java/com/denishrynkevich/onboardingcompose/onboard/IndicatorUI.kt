@@ -35,7 +35,7 @@ fun IndicatorUI(
                         .background(color = if (it == currentPage) selectedColor else unselectedColor)
 
                 )
-                Spacer(modifier = Modifier.size(8.dp))
+                Spacer(modifier = Modifier.size(if(it == 3) 0.dp else 8.dp))
 
             }
 
