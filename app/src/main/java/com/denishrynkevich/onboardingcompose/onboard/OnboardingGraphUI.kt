@@ -28,7 +28,7 @@ fun OnboardingGraphUI(onboardingModel: OnboardingModel) {
     val myBackgroundColor = colorResource(id = onboardingModel.color)
     val descriptionColor = Color.White.copy(alpha = 0.9f)
     Surface(
-        color = myBackgroundColor, // Устанавливаем желтый фон
+        color = myBackgroundColor,
         modifier = Modifier.fillMaxSize()
     ) {
         Column(
