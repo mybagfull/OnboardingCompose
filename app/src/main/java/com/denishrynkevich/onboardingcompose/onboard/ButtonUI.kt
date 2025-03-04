@@ -7,18 +7,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.denishrynkevich.onboardingcompose.R
+import com.denishrynkevich.onboardingcompose.ui.theme.myYellow
 
 @Composable
 fun ButtonUi(
     text: String = ">",
     backgroundColor: Color = Color.White,
-    textColor: Color = colorResource(id = R.color.yellow),
+    textColor: Color = myYellow,
     textStyle: TextStyle = MaterialTheme.typography.titleMedium,
     fontSize: Int = 14,
     onClick: () -> Unit

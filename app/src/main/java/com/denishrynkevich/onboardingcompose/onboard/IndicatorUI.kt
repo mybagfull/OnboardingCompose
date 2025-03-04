@@ -13,10 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.denishrynkevich.onboardingcompose.R
 
 @Composable
 fun IndicatorUI(
@@ -44,54 +42,34 @@ fun IndicatorUI(
 }
 
 
-@Preview(showBackground = true)
+@Preview(showBackground = false)
 @Composable
 fun IndicatorUIPreview1() {
 
-    val myBackgroundColor = colorResource(id = R.color.yellow)
-    Box(
-        Modifier.background(myBackgroundColor)
-    ) {
-        IndicatorUI(pageSize = 4, currentPage = 0)
-    }
+    IndicatorUI(pageSize = 4, currentPage = 0)
 
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = false)
 @Composable
 fun IndicatorUIPreview2() {
 
-    val myBackgroundColor = colorResource(id = R.color.yellow)
-    Box(
-        Modifier.background(myBackgroundColor)
-    ) {
         IndicatorUI(pageSize = 4, currentPage = 1)
-    }
 
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = false)
 @Composable
 fun IndicatorUIPreview3() {
 
-    val myBackgroundColor = colorResource(id = R.color.yellow)
-    Box(
-        Modifier.background(myBackgroundColor)
-    ) {
         IndicatorUI(pageSize = 4, currentPage = 2)
-    }
 
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = false)
 @Composable
 fun IndicatorUIPreview4() {
 
-    val myBackgroundColor = colorResource(id = R.color.yellow)
-    Box(
-        Modifier.background(myBackgroundColor)
-    ) {
         IndicatorUI(pageSize = 4, currentPage = 3)
-    }
 
 }

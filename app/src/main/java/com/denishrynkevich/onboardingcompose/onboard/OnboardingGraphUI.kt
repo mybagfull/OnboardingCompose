@@ -16,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,10 +24,9 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun OnboardingGraphUI(onboardingModel: OnboardingModel) {
-    val myBackgroundColor = colorResource(id = onboardingModel.color)
     val descriptionColor = Color.White.copy(alpha = 0.9f)
     Surface(
-        color = myBackgroundColor,
+        color = onboardingModel.color,
         modifier = Modifier.fillMaxSize()
     ) {
         Column(
