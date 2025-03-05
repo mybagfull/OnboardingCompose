@@ -5,12 +5,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -28,7 +30,7 @@ fun OnboardingScreen(onFinished: () -> Unit) {
 
     val pages = listOf(OnboardingModel.FirstPage, OnboardingModel.SecondPage, OnboardingModel.ThirdPage, OnboardingModel.FourthPage)
 
-    val pagerState = rememberPagerState(initialPage = 0) {
+    val pagerState = rememberPagerState(initialPage = 1) {
         pages.size
     }
 
@@ -41,16 +43,21 @@ fun OnboardingScreen(onFinished: () -> Unit) {
     Scaffold (
         bottomBar = {
             Row(
-                modifier = Modifier.fillMaxWidth().padding(10.dp, 5.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(24.dp, 5.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                IndicatorUI(pageSize = pages.size, currentPage = pagerState.currentPage)
-                SkipButton(text = "Skip",
-                    backgroundColor = Color.Transparent,
-                    textColor = Color.White.copy(alpha = 0.7f),
-                    textStyle = MaterialTheme.typography.labelSmall,
-                    fontSize = 18.sp) {}
+                Column(modifier = Modifier.offset(y = (8.dp))) {
+                    IndicatorUI(pageSize = pages.size, currentPage = pagerState.currentPage)
+                    SkipButton(text = "Skip",
+                        backgroundColor = Color.Transparent,
+                        textColor = Color.White.copy(alpha = 0.7f),
+                        textStyle = MaterialTheme.typography.labelSmall,
+                        fontSize = 18.sp) {}
+                }
+
                 NextButton(iconColor = currentColor, backgroundColor = Color.White, currentStep = pagerState.currentPage, totalSteps = pages.size) {
                 }
 

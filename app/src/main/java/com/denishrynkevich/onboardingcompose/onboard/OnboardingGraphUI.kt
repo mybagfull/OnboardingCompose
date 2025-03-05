@@ -27,10 +27,10 @@ fun OnboardingGraphUI(onboardingModel: OnboardingModel) {
     val descriptionColor = Color.White.copy(alpha = 0.9f)
     Surface(
         color = onboardingModel.color,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxWidth()
     ) {
         Column(
-            modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
         ) {

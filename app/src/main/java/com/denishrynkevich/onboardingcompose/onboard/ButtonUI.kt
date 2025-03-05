@@ -15,6 +15,7 @@ import com.denishrynkevich.onboardingcompose.ui.theme.myYellow
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -47,7 +48,7 @@ fun SkipButton(
         )
     ) {
         Text(
-            text = text, fontSize = fontSize, style = textStyle
+            text = text, fontSize = fontSize, style = textStyle, modifier = Modifier.offset(x = (-25).dp)
         )
     }
 
@@ -59,14 +60,13 @@ fun NextButton(
     currentStep: Int,
     totalSteps: Int,
     backgroundColor: Color = Color.White,
-    iconColor: Color = Color.Transparent,
+    iconColor: Color = Color.Yellow,
     onClick: () -> Unit
 ) {
     val progress = animateFloatAsState(
         targetValue = currentStep.toFloat() / totalSteps.toFloat(),
         animationSpec = tween(durationMillis = 500)
     ).value
-
 
     Box(
         modifier = Modifier
@@ -125,7 +125,7 @@ fun NextButton(
 @Composable
 fun NextButtonPreview() {
 
-    NextButton (iconColor = Color.Yellow, backgroundColor = Color.White, currentStep = 1, totalSteps = 4) {
+    NextButton (backgroundColor = Color.White, currentStep = 1, totalSteps = 4) {
 
     }
 
