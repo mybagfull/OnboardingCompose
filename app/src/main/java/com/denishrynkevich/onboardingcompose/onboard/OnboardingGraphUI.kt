@@ -45,7 +45,7 @@ fun OnboardingGraphUI(onboardingModel: OnboardingModel) {
                 text = onboardingModel.title,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(24.dp, 0.dp, end = 100.dp),
+                    .padding(24.dp, 0.dp, end = 80.dp),
                 fontSize = 28.sp,
                 textAlign = TextAlign.Left,
                 style = MaterialTheme.typography.titleMedium.copy(lineHeight = 32.sp),
@@ -93,4 +93,10 @@ fun OnboardingGraphUI(onboardingModel: OnboardingModel) {
 @Composable
 fun OnboardingGraphUIPreview1() {
     OnboardingGraphUI(OnboardingModel.FirstPage)
+}
+
+@Preview(showBackground = true)
+@Composable
+fun OnboardingGraphUIPreview2() {
+    OnboardingGraphUI(OnboardingModel.SecondPage)
 }
