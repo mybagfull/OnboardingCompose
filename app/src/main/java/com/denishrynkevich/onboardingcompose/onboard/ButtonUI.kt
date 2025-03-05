@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.denishrynkevich.onboardingcompose.R
 
@@ -36,7 +37,7 @@ fun SkipButton(
     backgroundColor: Color = Color.White,
     textColor: Color = myYellow,
     textStyle: TextStyle = MaterialTheme.typography.titleMedium,
-    fontSize: Int = 14,
+    fontSize: TextUnit = 18.sp,
     onClick: () -> Unit
 ) {
 
@@ -46,7 +47,7 @@ fun SkipButton(
         )
     ) {
         Text(
-            text = text, fontSize = fontSize.sp, style = textStyle
+            text = text, fontSize = fontSize, style = textStyle
         )
     }
 
@@ -137,6 +138,6 @@ fun SkipButtonPreview() {
         backgroundColor = Color.Transparent,
         textColor = Color.White.copy(alpha = 0.7f),
         textStyle = MaterialTheme.typography.labelSmall,
-        fontSize = 18) {
+        fontSize = 18.sp) {
     }
 }
