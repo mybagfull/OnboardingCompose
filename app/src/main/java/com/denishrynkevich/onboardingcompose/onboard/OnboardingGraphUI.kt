@@ -100,3 +100,9 @@ fun OnboardingGraphUIPreview1() {
 fun OnboardingGraphUIPreview2() {
     OnboardingGraphUI(OnboardingModel.SecondPage)
 }
+
+@Preview(showBackground = true)
+@Composable
+fun OnboardingGraphUIPreview3() {
+    OnboardingGraphUI(OnboardingModel.ThirdPage)
+}

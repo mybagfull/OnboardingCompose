@@ -6,6 +6,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.buildAnnotatedString
 import com.denishrynkevich.onboardingcompose.R
 import com.denishrynkevich.onboardingcompose.ui.theme.myPurple
+import com.denishrynkevich.onboardingcompose.ui.theme.myRed
 import com.denishrynkevich.onboardingcompose.ui.theme.myYellow
 
 sealed class OnboardingModel (
@@ -26,6 +27,13 @@ sealed class OnboardingModel (
         title = createAnnotatedString("Always there: more than", "1000 cars in Tbilisi"),
         description = "Our company is a leader by the number of cars in the fleet",
         color = myPurple
+    )
+
+    data object ThirdPage : OnboardingModel(
+        image = R.drawable.img_car3,
+        title = createAnnotatedString("Do not pay for parking,", "maintenance and gasoline"),
+        description = "We will pay for you, all expenses related to the car",
+        color = myRed
     )
 
     companion object {
