@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.buildAnnotatedString
 import com.denishrynkevich.onboardingcompose.R
+import com.denishrynkevich.onboardingcompose.ui.theme.myBlue
 import com.denishrynkevich.onboardingcompose.ui.theme.myPurple
 import com.denishrynkevich.onboardingcompose.ui.theme.myRed
 import com.denishrynkevich.onboardingcompose.ui.theme.myYellow
@@ -34,6 +35,13 @@ sealed class OnboardingModel (
         title = createAnnotatedString("Do not pay for parking,", "maintenance and gasoline"),
         description = "We will pay for you, all expenses related to the car",
         color = myRed
+    )
+
+    data object FourthPage : OnboardingModel(
+        image = R.drawable.img_car4,
+        title = createAnnotatedString("29 car models: from Skoda", "Octavia to Porsche 911"),
+        description = "Choose between regular car models or exclusive ones",
+        color = myBlue
     )
 
     companion object {
