@@ -23,7 +23,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -66,7 +65,11 @@ fun OnboardingScreen(onFinished: () -> Unit) {
                         backgroundColor = Color.Transparent,
                         textColor = Color.White.copy(alpha = 0.7f),
                         textStyle = MaterialTheme.typography.labelSmall,
-                        fontSize = 18.sp) {}
+                        fontSize = 18.sp) {
+                        scope.launch {
+                            onFinished()
+                        }
+                    }
                 }
 
                 NextButton(iconColor = currentColor, backgroundColor = Color.White, currentStep = pagerState.currentPage, totalSteps = pages.size) {
