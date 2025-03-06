@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -22,6 +23,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -46,7 +49,7 @@ fun OnboardingScreen(onFinished: () -> Unit) {
         }
     }
 
-
+    val scope = rememberCoroutineScope()
 
     Scaffold (
         bottomBar = {
@@ -67,6 +70,12 @@ fun OnboardingScreen(onFinished: () -> Unit) {
                 }
 
                 NextButton(iconColor = currentColor, backgroundColor = Color.White, currentStep = pagerState.currentPage, totalSteps = pages.size) {
+                    scope.launch { if (pagerState.currentPage < pages.size - 1) {
+                        pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                    } else {
+                        onFinished()
+                    } }
+
                 }
 
             }
