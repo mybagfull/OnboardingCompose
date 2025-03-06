@@ -73,18 +73,6 @@ fun NextButton(
             .size(58.dp)
             .padding(0.dp)
     ) {
-        IconButton(
-            onClick = onClick,
-            modifier = Modifier
-                .clip(CircleShape)
-                .size(58.dp)
-                .alpha(0.8f)) {
-            Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.icon_arrow),
-                contentDescription = "Следующий экран",
-                tint = iconColor
-            )
-        }
         Canvas(modifier = Modifier.matchParentSize()) {
             val strokeWidth = 3.dp.toPx()
             val radius = size.minDimension / 2 - strokeWidth / 2
@@ -114,6 +102,18 @@ fun NextButton(
                 style = Stroke(strokeWidth, cap = StrokeCap.Square),
                 topLeft = center - Offset(radius, radius),
                 size = androidx.compose.ui.geometry.Size(radius * 2, radius * 2)
+            )
+        }
+        IconButton(
+            onClick = onClick,
+            modifier = Modifier
+                .clip(CircleShape)
+                .size(58.dp)
+                .alpha(0.8f)) {
+            Icon(
+                imageVector = ImageVector.vectorResource(id = R.drawable.icon_arrow),
+                contentDescription = "Следующий экран",
+                tint = iconColor
             )
         }
     }
