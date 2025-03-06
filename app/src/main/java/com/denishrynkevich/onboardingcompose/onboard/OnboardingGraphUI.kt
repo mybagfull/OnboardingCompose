@@ -45,7 +45,7 @@ fun OnboardingGraphUI(onboardingModel: OnboardingModel) {
                 text = onboardingModel.title,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 24.dp),
+                    .padding(start = 24.dp, end = 20.dp),
                 fontSize = 28.sp,
                 textAlign = TextAlign.Left,
                 style = MaterialTheme.typography.titleMedium.copy(lineHeight = 32.sp),

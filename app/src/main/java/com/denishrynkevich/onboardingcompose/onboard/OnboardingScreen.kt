@@ -38,7 +38,7 @@ fun OnboardingScreen(onFinished: () -> Unit) {
         )
     }
 
-    val pagerState = rememberPagerState(initialPage = 1) {
+    val pagerState = rememberPagerState(initialPage = 0) {
         pages.size
     }
 
