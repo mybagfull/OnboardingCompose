@@ -64,7 +64,7 @@ fun NextButton(
     onClick: () -> Unit
 ) {
     val progress = animateFloatAsState(
-        targetValue = currentStep.toFloat() / totalSteps.toFloat(),
+        targetValue = (currentStep + 1).toFloat() / totalSteps.toFloat(),
         animationSpec = tween(durationMillis = 500)
     ).value
 
