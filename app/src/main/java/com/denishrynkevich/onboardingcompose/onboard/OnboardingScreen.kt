@@ -12,11 +12,10 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,15 +27,24 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun OnboardingScreen(onFinished: () -> Unit) {
 
-    val pages = listOf(OnboardingModel.FirstPage, OnboardingModel.SecondPage, OnboardingModel.ThirdPage, OnboardingModel.FourthPage)
+    val pages = remember {
+        listOf(
+            OnboardingModel.FirstPage,
+            OnboardingModel.SecondPage,
+            OnboardingModel.ThirdPage,
+            OnboardingModel.FourthPage
+        )
+    }
 
     val pagerState = rememberPagerState(initialPage = 1) {
         pages.size
     }
 
-    var currentColor by remember { mutableStateOf(pages[pagerState.currentPage].color) }
-
-    currentColor = pages[pagerState.currentPage].color
+    val currentColor by remember(pagerState.currentPage) {
+        derivedStateOf {
+            pages[pagerState.currentPage].color
+        }
+    }
 
 
 
