@@ -10,6 +10,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,56 +35,56 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         setContent {
             OnboardingComposeTheme {
-
-                Surface(color = myBlue) {
-                    if (onboardingUtils.isOnboardingCompleted()) {
-                        ShowHomeScreen()
+                Surface(
+                    color = myBlue,
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    val showOnboarding = remember { mutableStateOf(!onboardingUtils.isOnboardingCompleted()) }
+                    if (showOnboarding.value) {
+                        ShowOnboardingScreen {
+                            onboardingUtils.setOnboardingCompleted()
+                            showOnboarding.value = false
+                        }
                     } else {
-                        ShowOnboardingScreen()
-
+                        ShowHomeScreen()
                     }
                 }
-
             }
         }
     }
 
     @Composable
     private fun ShowHomeScreen() {
-        Column (horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center, modifier = Modifier
-            .fillMaxSize()){
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxSize()
+        ) {
             Text(
-                text = "You are a clever person!"
-                , style = MaterialTheme.typography.titleMedium
-                , fontSize = 28.sp
-                , color = Color.White
-                , textAlign = TextAlign.Center)
+                text = "You are a clever person!",
+                style = MaterialTheme.typography.titleMedium,
+                fontSize = 28.sp,
+                color = Color.White,
+                textAlign = TextAlign.Center
+            )
         }
-
-
     }
 
     @Composable
-    private fun ShowOnboardingScreen() {
+    private fun ShowOnboardingScreen(onOnboardingCompleted: () -> Unit) {
         val scope = rememberCoroutineScope()
         OnboardingScreen {
-            onboardingUtils.setOnboardingCompleted()
             scope.launch {
-                setContent {
-                    ShowHomeScreen()
-                }
+                onOnboardingCompleted()
             }
         }
-
-
     }
 
     @Preview(showBackground = true)
     @Composable
     fun GreetingPreview() {
         OnboardingComposeTheme {
+            ShowHomeScreen()
         }
     }
 }
-
