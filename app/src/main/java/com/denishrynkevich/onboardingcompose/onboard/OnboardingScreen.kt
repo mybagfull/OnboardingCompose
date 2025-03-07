@@ -4,9 +4,11 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.rememberCoroutineScope
@@ -55,7 +57,7 @@ fun OnboardingScreen(onFinished: () -> Unit) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(24.dp, 5.dp),
+                    .padding(24.dp, (5+36).dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -82,6 +84,11 @@ fun OnboardingScreen(onFinished: () -> Unit) {
                 }
 
             }
+            Spacer(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .size(36.dp)
+            )
         }
     ,
     content = {
